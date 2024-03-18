@@ -1,0 +1,209 @@
+\documentclass[12pt,landscape]{article}
+\usepackage[margin=1cm]{geometry}
+\usepackage{xparse}
+\usepackage{etoolbox}
+\usepackage{tikz,rubikcube}
+\usepackage{tikz-3dplot}
+
+\usepackage{longtable}
+
+\usetikzlibrary{patterns}
+
+\setlength{\tabcolsep}{2pt}
+\pagestyle{empty}
+
+%\colorlet{Y}{white}
+%\colorlet{O}{black!20}
+%\colorlet{G}{black!40}
+%\colorlet{R}{black!80}
+%\colorlet{B}{black!60}
+%
+%\def\patternY{}
+%\def\patternO{}
+%\def\patternG{crosshatch}
+%\def\patternR{}
+%\def\patternB{dots}
+
+\NewDocumentCommand\tdplotCube{O{OLL} m}{%
+\tdplotsetmaincoords{70}{-20}%
+\resizebox{6cm}{!}{%
+\begin{tikzpicture}[tdplot_main_coords]
+\draw[fill=\Ult] (0,2,3) -- ++(1,0,0) -- ++(0,1,0) -- ++(-1,0,0) -- cycle;
+\draw[fill=\Ulm] (0,1,3) -- ++(1,0,0) -- ++(0,1,0) -- ++(-1,0,0) -- cycle;
+\draw[fill=\Ulb] (0,0,3) -- ++(1,0,0) -- ++(0,1,0) -- ++(-1,0,0) -- cycle;
+\draw[fill=\Umt] (1,2,3) -- ++(1,0,0) -- ++(0,1,0) -- ++(-1,0,0) -- cycle;
+\draw[fill=\Umm] (1,1,3) -- ++(1,0,0) -- ++(0,1,0) -- ++(-1,0,0) -- cycle;
+\draw[fill=\Umb] (1,0,3) -- ++(1,0,0) -- ++(0,1,0) -- ++(-1,0,0) -- cycle;
+\draw[fill=\Urt] (2,2,3) -- ++(1,0,0) -- ++(0,1,0) -- ++(-1,0,0) -- cycle;
+\draw[fill=\Urm] (2,1,3) -- ++(1,0,0) -- ++(0,1,0) -- ++(-1,0,0) -- cycle;
+\draw[fill=\Urb] (2,0,3) -- ++(1,0,0) -- ++(0,1,0) -- ++(-1,0,0) -- cycle;
+\draw[fill=\Flt,pattern=\csuse{pattern\Flt}] (0,0,2) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle;
+\draw[fill=\Fmt,pattern=\csuse{pattern\Fmt}] (1,0,2) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle;
+\draw[fill=\Frt,pattern=\csuse{pattern\Frt}] (2,0,2) -- ++(0,0,1) -- ++(1,0,0) -- ++(0,0,-1) -- cycle;
+\draw[fill=\Llt,pattern=\csuse{pattern\Llt}] (0,2,2) -- ++(0,0,1) -- ++(0,1,0) -- ++(0,0,-1) -- cycle;
+\draw[fill=\Lmt,pattern=\csuse{pattern\Lmt}] (0,1,2) -- ++(0,0,1) -- ++(0,1,0) -- ++(0,0,-1) -- cycle;
+\draw[fill=\Lrt,pattern=\csuse{pattern\Lrt}] (0,0,2) -- ++(0,0,1) -- ++(0,1,0) -- ++(0,0,-1) -- cycle;
+% hidden sides
+\draw[fill=\Rlt,pattern=\csuse{pattern\Rlt}] (3,0,3) -- ++(0,1,0) -- ++(1,0,-0.2) -- ++(0,-1,0) -- cycle;
+\draw[fill=\Rmt,pattern=\csuse{pattern\Rmt}] (3,1,3) -- ++(0,1,0) -- ++(1,0,-0.2) -- ++(0,-1,0) -- cycle;
+\draw[fill=\Rrt,pattern=\csuse{pattern\Rrt}] (3,2,3) -- ++(0,1,0) -- ++(1,0,-0.2) -- ++(0,-1,0) -- cycle;
+\draw[fill=\Brt,pattern=\csuse{pattern\Brt}] (0,3,3) -- ++(1,0,0) -- ++(0,1,-0.2) -- ++(-1,0,0) -- cycle;
+\draw[fill=\Bmt,pattern=\csuse{pattern\Bmt}] (1,3,3) -- ++(1,0,0) -- ++(0,1,-0.2) -- ++(-1,0,0) -- cycle;
+\draw[fill=\Blt,pattern=\csuse{pattern\Blt}] (2,3,3) -- ++(1,0,0) -- ++(0,1,-0.2) -- ++(-1,0,0) -- cycle;
+\ifstrequal{#1}{PLL}{%
+\draw[fill=\Flm,pattern=\csuse{pattern\Flm}] (0,0,1.5) -- ++(0,0,0.5) -- ++(1,0,0) -- ++(0,0,-0.5) -- cycle;
+\draw[fill=\Fmm,pattern=\csuse{pattern\Fmm}] (1,0,1.5) -- ++(0,0,0.5) -- ++(1,0,0) -- ++(0,0,-0.5) -- cycle;
+\draw[fill=\Frm,pattern=\csuse{pattern\Frm}] (2,0,1.5) -- ++(0,0,0.5) -- ++(1,0,0) -- ++(0,0,-0.5) -- cycle;
+\draw[fill=\Llm,pattern=\csuse{pattern\Llm}] (0,2,1.5) -- ++(0,0,0.5) -- ++(0,1,0) -- ++(0,0,-0.5) -- cycle;
+\draw[fill=\Lmm,pattern=\csuse{pattern\Lmm}] (0,1,1.5) -- ++(0,0,0.5) -- ++(0,1,0) -- ++(0,0,-0.5) -- cycle;
+\draw[fill=\Lrm,pattern=\csuse{pattern\Lrm}] (0,0,1.5) -- ++(0,0,0.5) -- ++(0,1,0) -- ++(0,0,-0.5) -- cycle;
+\tdplotdrawarc[fill=white,white,opacity=0.8]{(1.5,1.5,3)}{1}{0}{360}{}{}
+\tdplotdrawarc[white]{(1.5,1.5,3)}{0}{0}{360}{color=black}{{\Large\textbf{#2}}}
+}{}
+\end{tikzpicture}%
+}% end resize box
+}
+
+\NewDocumentCommand\tdplotPLL{m m m m m}{%
+\RubikCubeGrayAll
+\RubikFaceFront #2  RRR RRR%
+\RubikFaceUp    YYY YYY YYY% 
+\RubikFaceDown  WWW WWW WWW%
+\RubikFaceRight #3  GGG GGG% 
+\RubikFaceBack  #4  OOO OOO% 
+\RubikFaceLeft  #5  BBB BBB% 
+\begin{minipage}[t]{6cm}%
+\tdplotCube[PLL]{#1}%
+\flushleft\large\strut\csuse{#1alg}\strut%
+\end{minipage}
+}%
+
+
+\NewDocumentCommand\tdplotOLL{m m m m m m}{%
+\RubikCubeGrayAll
+\RubikFaceFront #3 RRR RRR%
+\RubikFaceRight #4 GGG GGG%
+\RubikFaceBack #5 OOO OOO%
+\RubikFaceLeft #6 BBB BBB%
+\RubikFaceUp #2 %
+\begin{minipage}[t]{6cm}%
+\tdplotCube[OLL]{}%
+\flushleft\large\strut\csuse{#1alg}\strut%
+\end{minipage}
+}
+
+\def\Tperm {\tdplotPLL {T}{RRG}{OBR}{GOO}{BGB}}
+\def\Fperm {\tdplotPLL {F}{ROG}{OGR}{GRO}{BBB}}
+\def\Vperm {\tdplotPLL {V}{RRO}{BOG}{OGR}{GBB}}
+\def\Yperm {\tdplotPLL {Y}{RRO}{BGG}{OBR}{GOB}}
+\def\Zperm {\tdplotPLL {Z}{RBR}{GOG}{OGO}{BRB}}
+\def\Hperm {\tdplotPLL {H}{ROR}{GBG}{ORO}{BGB}}
+\def\Aaperm{\tdplotPLL{Aa}{BRR}{GGB}{ROG}{OBO}}
+\def\Abperm{\tdplotPLL{Ab}{GRO}{BGG}{OOB}{RBR}}
+\def\Japerm{\tdplotPLL{Ja}{RRG}{OOR}{GGO}{BBB}}
+\def\Jbperm{\tdplotPLL{Jb}{RGG}{ORR}{GOO}{BBB}}
+\def\Gaperm{\tdplotPLL{Ga}{BRR}{GOB}{RBG}{OGO}}
+\def\Gbperm{\tdplotPLL{Gb}{ROG}{ORR}{GBO}{BGB}}
+\def\Gcperm{\tdplotPLL{Gc}{GBO}{BRG}{OOB}{RGR}}
+\def\Gdperm{\tdplotPLL{Gd}{RBG}{OOR}{GRO}{BGB}}
+\def\Uaperm{\tdplotPLL{Ua}{RGR}{GOG}{ORO}{BBB}}
+\def\Ubperm{\tdplotPLL{Ub}{ROR}{GRG}{OGO}{BBB}}
+\def\Eperm {\tdplotPLL {E} {BRG}{OGR}{GOB}{RBO}}
+\def\Raperm{\tdplotPLL{Ra}{BBR}{GRB}{ROG}{OGO}}
+\def\Rbperm{\tdplotPLL{Rb}{GRO}{BOG}{OBB}{RGR}}
+\def\Naperm{\tdplotPLL{Na}{ORR}{GBB}{ROO}{BGG}}
+\def\Nbperm{\tdplotPLL{Nb}{RRO}{BBG}{OOR}{GGB}}
+\def\skipperm{\tdplotPLL{skip}{RRR}{GGG}{OOO}{BBB}}
+
+\def\pll#1{\csuse{#1perm}}
+
+\def\Falg {R'FRf' R'FR2UR' U' R'F'R2UR' S}  
+\def\Uaalg{R2U' S'U2'S U'R2}   
+\def\Ubalg{R2'U S'U2S UR2'}     
+\def\Halg {M2'U'M2' U2 M2'U'M2'}
+\def\Jaalg{(M'R')FRF' RU2'r'U rU2'r'}
+\def\Jbalg{r'FRF' rU2'R' URU2'R'}
+\def\Talg {RUR'U' R'FR2U'R' U'RUR' F'}
+\def\Aaalg{(rL) D2 L'U'L D2 L'Ur'}
+\def\Abalg{(r'L') D2 LUL' D2 LU'r}
+\def\Zalg {M2'u'M2'u SM2'S'}  
+\def\Gaalg{R2uR'U R'U'Ru' R2 F'UF}
+\def\Gcalg{R2'u'RU' RUR'u R2 fR'f'}
+\def\Yalg {F RU'R'U' RUR'F' RUR'U' R'FRF'}
+\def\Ealg {R'U'R'D' RU'R'D RUR'D' RUR'D R2}
+\def\Gbalg{D R'U'RU D' R2UR'U RU'RU' R2'}
+\def\Gdalg{D' RUR'U' D  R2U'RU' R'UR'U R2}
+\def\Valg {R'URU' R'f'U'R U2' R'U'RU' R'fR} 
+\def\Raalg{RUR'F' RU2'R'U2 R'FRU RU2'R'}
+\def\Rbalg{R2'FRU RU'R'F' RU2'R'U2 R}
+\def\Naalg{RUR'U {\Jbalg} U'RU'R'}           
+\def\Nbalg{L'U'LU {\Jaalg} U'L'UL}          
+\def\skipalg{do you really need an alg?}
+
+
+\csdef{1alg}{RU2'R' R'FRF' U2 R'FRF'}
+\csdef{2alg}{f URU'R' S' URU'R' F'}
+\csdef{3alg}{f URU'R' S' R'F'R URU'R}
+\csdef{4alg}{R'FRF' U'S R'U'RU RS'}
+\csdef{5alg}{l'U2L UL'Ul}
+\csdef{6alg}{rU2'R' U'RU'r'}
+\csdef{7alg}{rUR'U RU2'r}
+\csdef{8alg}{l'U'LU' L'U2l}
+\csdef{9alg}{L'U'LU' LF'L'F L'U2L}
+\csdef{10alg}{RUR'U R'FRF' RU2'R'}
+\csdef{11alg}{S RUR'U RU2'R'U2 S'}
+\csdef{12alg}{S' L'U'LU' L'U2LU2' S}
+\csdef{17alg}{FR'F'R US' RU'R'S}
+\csdef{18alg}{FS' RU'R'S RU2'R'U' F'}
+\csdef{19alg}{S' RUR'S U' R'FRF'}
+\csdef{20alg}{rUR'U' M2 URU'R' U'M'}
+\csdef{35alg}{RU2'R' R'FRF' RU2'R'}
+\csdef{37alg}{R'FRF' URU'R'}
+\csdef{oll1} {\tdplotOLL {1}{XXX XYX XXX}{XYX}{YYY}{XYX}{YYY}}
+\csdef{oll2} {\tdplotOLL {2}{XXX XYX XXX}{YYX}{YYY}{XYY}{XYX}}
+\csdef{oll3} {\tdplotOLL {3}{XXX XYX YXX}{XYY}{XYY}{XYY}{XYY}}
+\csdef{oll4} {\tdplotOLL {4}{XXX XYX XXY}{YYX}{YYX}{YYX}{YYX}}
+\csdef{oll5} {\tdplotOLL {5}{YYX YYX XXX}{XYY}{XYY}{XXX}{XXY}}
+\csdef{oll6} {\tdplotOLL {6}{XYY XYY XXX}{YYX}{YXX}{XXX}{YYX}}
+\csdef{oll7} {\tdplotOLL {7}{XYX YYX YXX}{XYY}{XYY}{XXY}{XXX}}
+\csdef{oll8} {\tdplotOLL {8}{XYX XYY XXY}{YYX}{XXX}{YXX}{YYX}}
+\csdef{oll9} {\tdplotOLL {9}{YXX XYY XYX}{YXX}{YXX}{YYX}{XYX}}
+\csdef{oll10}{\tdplotOLL{10}{XXY YYX XYX}{XXY}{XYX}{XYY}{XXY}}
+\csdef{oll11}{\tdplotOLL{11}{XXX XYY YYX}{XXY}{XXY}{XYY}{XYX}}
+\csdef{oll12}{\tdplotOLL{12}{XXX YYX XYY}{YXX}{XYX}{YYX}{YXX}}
+\csdef{oll17}{\tdplotOLL{17}{YXX XYX XXY}{YYX}{XYY}{XYX}{XYX}}
+\csdef{oll18}{\tdplotOLL{18}{XXY XYX XXY}{XYX}{XYX}{XYX}{YYY}}
+\csdef{oll19}{\tdplotOLL{19}{XXY XYX XXY}{YYX}{XYX}{XYY}{XYX}}
+\csdef{oll20}{\tdplotOLL{20}{YXY XYX YXY}{XYX}{XYX}{XYX}{XYX}}
+\csdef{oll35}{\tdplotOLL{35}{YXX XYY XYY}{YXX}{XXY}{XYX}{XYX}}
+\csdef{oll37}{\tdplotOLL{37}{YYX YYX XXY}{YYX}{XYY}{XXX}{XXX}}
+\def\oll#1{\csuse{oll#1}}
+
+\begin{document}
+
+
+\setlength\LTcapwidth{\linewidth}
+
+\begin{longtable}{|p{6.3cm}|p{6.3cm}|p{6.3cm}|p{6.3cm}|}
+\caption{PLL seen from front left. Headlights or solved side, if they exist, are placed on the left.  All except Gc have a front sticker that stays in place for AUF reference; for Gc the right back sticker must be used.}\\\hline
+\pll{T}  & \pll{Y}  & \pll{H}  & \pll{Z}  \\\hline
+\pll{F}  & \pll{V}  & \pll{Ua} & \pll{Ub} \\\hline
+\pll{Ja} & \pll{Jb} & \pll{Aa} & \pll{Ab} \\\hline
+\pll{Ga} & \pll{Gc} & \pll{Gb} & \pll{Gd} \\\hline
+\pll{Ra} & \pll{Rb} & \pll{Na} & \pll{Nb} \\\hline
+\pll{E}  & \pll{skip}\\\cline{1-2}
+\end{longtable}
+
+
+\newpage
+
+\begin{longtable}{|p{6.3cm}|p{6.3cm}|p{6.3cm}|p{6.3cm}|}
+\caption{OLL seen from front left. }\\\hline
+\oll{1}  & \oll{2}  & \oll{3}  & \oll{4}  \\\hline
+\oll{17} & \oll{18} & \oll{19} & \oll{20} \\\hline
+\oll{35} & \oll{37} & \oll{9}  & \oll{10} \\\hline
+\oll{7}  & \oll{8}  & \oll{11} & \oll{12} \\\hline
+\oll{5}  & \oll{6} \\\hline
+\end{longtable}
+
+\end{document}

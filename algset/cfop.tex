@@ -143,8 +143,10 @@
 
 \csdef{1alg}{RU2'R' R'FRF' U2 R'FRF'}
 \csdef{2alg}{F RUR'U' S RUR'U' f'}
-\csdef{3alg}{f URU'R' S' R'F'R URU'R}
-\csdef{4alg}{FU' RU'R'U' R'FRF' U2F'}
+\csdef{oll3} {\tdplotOLL {3}{XXX XYX XXY}{XYX}{XYY}{XYY}{XYY}}
+\csdef{3alg}{f RUR'U' f'UF RUR'U F'}
+\csdef{oll4} {\tdplotOLL {4}{XXX XYX XXY}{YYX}{XYX}{YYX}{YYX}}
+\csdef{4alg}{RUR'U' R'FRS RUR'U' f'}
 \csdef{5alg}{F'r2'F rU'rF}
 \csdef{6alg}{rU2'R' U'RU'r'}
 \csdef{7alg}{rUR'U RU2'r}
@@ -165,8 +167,10 @@
 \csdef{36alg}{RUR2' F'U'FU R2U2'R'} 
 \csdef{37alg}{R'FRF' URU'R'}
 \csdef{38alg}{RUR'U RU'R'U' R'FRF}
-\csdef{39alg}{LF'L' U'LU F'U'L}
-\csdef{40alg}{R'FR UR'U' FUR}
+\csdef{oll39}{\tdplotOLL{39}{XXY YYY YXX}{XYY}{XXX}{XYX}{YXX}}
+\csdef{39alg}{f'LFL' U'L'UL S}
+\csdef{oll40}{\tdplotOLL{40}{YXX YYY XXY}{YYX}{XXY}{XYX}{XXX}}
+\csdef{40alg}{fR'F'R URU'R' S'}
 \csdef{43alg}{f' L'U'LU f}
 \csdef{44alg}{f RURU' f'}
 \csdef{45alg}{F RUR'U F'}
@@ -175,6 +179,40 @@
 \csdef{52alg}{R' F'U'FU' R UR'UR}
 \csdef{55alg}{RU2'R2'U' RU'R'U2' FRF'}
 \csdef{56alg}{RU'R'U' S' RU'R'S URUR'}
+
+% H
+\csdef{oll21}{\tdplotOLL{21}{XYX YYY XYX}{XXX}{YXY}{XXX}{YXY}}
+\csdef{21alg}{RUR'U RU'R'U RU2'R'}
+% pi
+\csdef{oll22}{\tdplotOLL{22}{XYX YYY XYX}{XXY}{XXX}{YXX}{YXY}}
+\csdef{22alg}{R2 DR'U2'R D'R'U2'R'}
+\csdef{oll23}{\tdplotOLL{23}{YYY YYY XYX}{YXY}{XXX}{XXX}{XXX}}
+\csdef{23alg}{R2'D' RU2R'D RU2R}
+\csdef{oll24}{\tdplotOLL{24}{YYY YYY XYX}{XXX}{YXX}{XXX}{XXY}}
+\csdef{24alg}{R'U'R'D' RUR'D R2}
+\csdef{oll25}{\tdplotOLL{25}{YYX YYY XYY}{YXX}{XXY}{XXX}{XXX}}
+\csdef{25alg}{FR'F'r URU'r'}
+% sune & antisune
+\csdef{oll26}{\tdplotOLL{26}{XYX YYY YYX}{XXX}{YXX}{YXX}{YXX}}
+\csdef{26alg}{LU2L' U'LU'L'}
+\csdef{oll27}{\tdplotOLL{27}{XYX YYY YYX}{XXY}{XXY}{XXY}{XXX}}
+\csdef{27alg}{RUR'U RU2'R}
+\csdef{ollsolved}{\tdplotOLL{solved}{YYY YYY YYY}{XXX}{XXX}{XXX}{XXX}}
+\csdef{solvedalg}{skip}
+% corners oriented
+\csdef{oll28}{\tdplotOLL{28}{YXY YYX YYY}{XXX}{XYX}{XYX}{XXX}}
+\csdef{28alg}{M'U'M U2 M'UM}
+\csdef{oll57}{\tdplotOLL{57}{YYY XYX YYY}{XXX}{XYX}{XXX}{XYX}}
+\csdef{57alg}{RUR'S' RU'R'S}
+% awkward shapes
+\csdef{oll29}{\tdplotOLL{29}{XYY YYX XXY}{YYX}{XYX}{XXY}{XXX}}
+\csdef{29alg}{S' RUR'U' R'FRF' US}
+\csdef{oll30}{\tdplotOLL{30}{YYX XYY YXX}{XYY}{XXX}{YXX}{XYX}}
+\csdef{30alg}{S L'U'LU LF'L'F U'S'}
+\csdef{oll41}{\tdplotOLL{41}{YYX XYY YXX}{XYX}{YXY}{XXX}{XYX}}
+\csdef{41alg}{(F'S) L'U'LU FU'S'}
+\csdef{oll42}{\tdplotOLL{42}{XYY YYX XXY}{XYX}{XYX}{XXX}{YXY}}
+\csdef{42alg}{(FS') RUR'U' F'US}
 
 \csdef{oll47}{\tdplotOLL{47}{XYX YYX XXX}{XYX}{YYX}{YXY}{XXY}}
 \csdef{47alg}{R' (F'U'FU)2 R}
@@ -200,8 +238,6 @@
 
 \csdef{oll1} {\tdplotOLL {1}{XXX XYX XXX}{XYX}{YYY}{XYX}{YYY}}
 \csdef{oll2} {\tdplotOLL {2}{XXX XYX XXX}{XYY}{XYX}{YYX}{YYY}}
-\csdef{oll3} {\tdplotOLL {3}{XXX XYX YXX}{XYY}{XYY}{XYY}{XYX}}
-\csdef{oll4} {\tdplotOLL {4}{XXX XYX YXX}{XYX}{YYX}{YYX}{YYX}}
 \csdef{oll5} {\tdplotOLL {5}{XYY XYY XXX}{XYY}{XXX}{XXY}{XYY}}
 \csdef{oll6} {\tdplotOLL {6}{XYY XYY XXX}{YYX}{YXX}{XXX}{YYX}}
 \csdef{oll7} {\tdplotOLL {7}{XYX YYX YXX}{XYY}{XYY}{XXY}{XXX}}
@@ -222,8 +258,6 @@
 \csdef{oll36}{\tdplotOLL{36}{XYY YYX YXX}{XYY}{XYX}{XXX}{YXX}}
 \csdef{oll38}{\tdplotOLL{38}{XYY YYX YXX}{XYX}{YYX}{XXY}{XXX}}
 \csdef{oll37}{\tdplotOLL{37}{YYX YYX XXY}{YYX}{XYY}{XXX}{XXX}}
-\csdef{oll39}{\tdplotOLL{39}{XXY YYY YXX}{XYX}{YXX}{XYY}{XXX}}
-\csdef{oll40}{\tdplotOLL{40}{YXX YYY XXY}{XYX}{XXX}{YYX}{XXY}}
 \csdef{oll43}{\tdplotOLL{43}{YXX YYX YYX}{XXX}{YYY}{XYX}{XXX}}
 \csdef{oll44}{\tdplotOLL{44}{XXY XYY XYY}{XXX}{XXX}{XYX}{YYY}}
 \csdef{oll45}{\tdplotOLL{45}{XXY YYY XXY}{XYX}{XXX}{XYX}{YXY}}
@@ -254,6 +288,9 @@
 
 \begin{longtable}{|p{6.3cm}|p{6.3cm}|p{6.3cm}|p{6.3cm}|}
 \caption{OLL seen from front left. }\\\hline
+% edge solved
+\oll{21} & \oll{22} & \oll{24} & \oll{23} \\\hline
+\oll{25} & \oll{26} & \oll{27} & \oll{solved} \\\hline
 % dot cases
 \oll{1}  & \oll{2}  & \oll{4}  & \oll{3}  \\\hline
 \oll{17} & \oll{18} & \oll{19} & \oll{20} \\\hline
@@ -274,6 +311,10 @@
 \oll{50} & \oll{49} & \oll{54} & \oll{49} \\\hline 
 % L shapes
 \oll{16} & \oll{13} & \oll{15} & \oll{14} \\\hline
+% awkward shapes
+\oll{42} & \oll{29} & \oll{41} & \oll{30} \\\hline
+% corners solved
+\oll{28} & \oll{57} \\\cline{1-2}
 \end{longtable}
 
 \end{document}
